@@ -9,7 +9,7 @@ import ch.qos.logback.core.model.Model;
 
 public class deposit {
 
-    @GetMapping("/deposit")
+    @GetMapping("/deposit.html")
     public String Cdeposit(Model model){
         return "deposit";
     }

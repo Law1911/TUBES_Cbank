@@ -7,7 +7,7 @@ import ch.qos.logback.core.model.Model;
 
 @Controller
 public class printTransactionHistory {
-    @GetMapping("/printTransactionHistory")
+    @GetMapping("/printTransactionHistory.html")
     public String CprintTransactionHistory(Model model){
         return "printTransactionHistory";
     }

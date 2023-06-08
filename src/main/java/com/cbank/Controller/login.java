@@ -6,10 +6,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import ch.qos.logback.core.model.Model;
 
 @Controller
-public class transfer {
-    @GetMapping("/transfer.html")
-    public String Ctrasfer(Model model){
-        return "transfer";
+public class login {
+    @GetMapping("/login")
+    public String Clogin(Model model){
+        return "login";
     }
-    
 }

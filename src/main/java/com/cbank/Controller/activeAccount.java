@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import ch.qos.logback.core.model.Model;
 
 @Controller
-public class transfer {
-    @GetMapping("/transfer.html")
-    public String Ctrasfer(Model model){
-        return "transfer";
-    }
+public class activeAccount {
     
+    @GetMapping("/activeAccount")
+    public String CactiveAccount(Model model){
+        return  "activeAccount";
+    }
 }
