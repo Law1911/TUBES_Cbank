@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,105 +12,109 @@
 
   <style>
     .row {
-          height: 100px;
-          padding: 20px;
-      }
-
-      .row>div>h1 {
-          color: black;
-      }
-
-      .row>div>a {
-            margin-top: 10px;
-            margin-bottom: 10px;
-      }
-
-      .button-head , .button-main{
-            text-align: end;
-      }
-
-      thead {
-            background-color:transparent;
-            text-align: center;
-            color: black;
-      }
-
-        .row-head {
-            height: 100px;
-            padding: 20px;
-        }
-
-        .row>div>a {
-            margin-top: 10px;
-            margin-bottom: 10px;
-        }
-
-        .button-head {
-            text-align: end;
-        }
-
-        .row-body {
-            margin-top: 20px;
-            padding: 0px 20px 0px 20px;
-        }
-
-        .row-body>div>div {
-            margin-bottom: 20px;
-            font-weight: bold;
-        }
-
-        .button-main > button {
-            margin-left: 10px;
+      height: 100px;
+      padding: 20px;
     }
-        /* CSS untuk tampilan sidebar */
-        .sidebar {
-            width: 200px;
-            background-color: rgb(58, 116, 224);
-            padding: 0px;
-            height: 100%;
-            position: fixed;
-            top: 0;
-            left: 0;
-        }
 
-        .sidebar ul {
-            list-style-type: none;
-            padding: 20px;
-            margin: 0px;
-        }
+    .row>div>h1 {
+      color: black;
+    }
 
-        .sidebar li {
-            margin-bottom: 20px;
-        }
+    .row>div>a {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
 
-        .sidebar a {
-            text-decoration: none;
-            color: whitesmoke;
-        }
+    .button-head,
+    .button-main {
+      text-align: end;
+    }
 
-        .sidebar a:hover {
-            color: #000;
-        }
+    thead {
+      background-color: transparent;
+      text-align: center;
+      color: black;
+    }
 
-        /* CSS untuk konten halaman */
-        .content {
-            margin-left: 220px; /* Lebar sidebar + jarak margin */
-            padding: 20px;
-        }
+    .row-head {
+      height: 100px;
+      padding: 20px;
+    }
 
-        .image {
-            width: 20px;
-            height: 20px;
-            margin-right: 5px;
-        }
+    .row>div>a {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    .button-head {
+      text-align: end;
+    }
+
+    .row-body {
+      margin-top: 20px;
+      padding: 0px 20px 0px 20px;
+    }
+
+    .row-body>div>div {
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+
+    .button-main>button {
+      margin-left: 10px;
+    }
+
+    /* CSS untuk tampilan sidebar */
+    .sidebar {
+      width: 200px;
+      background-color: rgb(58, 116, 224);
+      padding: 0px;
+      height: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
+
+    .sidebar ul {
+      list-style-type: none;
+      padding: 20px;
+      margin: 0px;
+    }
+
+    .sidebar li {
+      margin-bottom: 20px;
+    }
+
+    .sidebar a {
+      text-decoration: none;
+      color: whitesmoke;
+    }
+
+    .sidebar a:hover {
+      color: #000;
+    }
+
+    /* CSS untuk konten halaman */
+    .content {
+      margin-left: 220px;
+      /* Lebar sidebar + jarak margin */
+      padding: 20px;
+    }
+
+    .image {
+      width: 20px;
+      height: 20px;
+      margin-right: 5px;
+    }
   </style>
 </head>
+
 <body>
   <div class="content">
     <div class="sidebar">
       <ul style="margin: 40px 10px 0px 40px;">
-          <img src="image/piggy-bank.png" alt="">
-          <li style="color: #f5f5f5; font-size: 130%;">C-Bank</li>
+        <img src="image/piggy-bank.png" alt="">
+        <li style="color: #f5f5f5; font-size: 130%;">C-Bank</li>
       </ul>
       <ul>
         <li>
@@ -136,73 +141,28 @@
     </div>
 
     <div class="container">
-      <div class="row">
-        <div class="col-6">
-          <h1>Transfer</h1>
+      <h1>Transfer Page</h1>
+      <form th:action="@{/toNextTransfer}" method="post">
+        <div class="form-group mb-3 mt-5">
+          <label for="senderName">Nama Pengirim: <span th:text="${user.getAccount().getFirstName()}"> </span></label>
         </div>
-        <div class="col-6 button-head">
-          <a 
-            href="listCustomers.html" 
-            type="button" class="btn btn-outline-primary">
-              <i class="fa-solid fa-bars"></i> 
-              List of Customers</a>
+        <div class="form-group mb-3">
+          <label for="senderName">Balance Pengirim: <span th:text="${user.getAccount().getBalance()}"> </span></label>
         </div>
-      </div>
-
-        <form>
-            <div class="row row-body" style="padding: 0px 20px 0px 20px;">
-                <div class="mb-3 col-md-3">
-                    <div>
-                        <label for="exampleInputEmail1" class="form-label">Sender ID</label>
-                        <input type="number" class="form-control" id="exampleInputEmail1">
-                    </div>
-                    <div>
-                        <label for="sel1" class="form-label">Recipient Name</label>
-                        <select class="form-select" id="sel1" name="sellist1">
-                        <option>(1165) Akeem Walter 111</option>
-                        <option>(1175) Amaya Baker</option>
-                        <option>(1185) Christian Butler</option>
-                        <option>(1195) Edan Roach</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="mb-3 col-md-3">
-                    <div>
-                        <label for="exampleInputEmail1" class="form-label">Sender Name</label>
-                        <input type="text" class="form-control" id="exampleInputEmail1">
-                    </div>
-                    <div>
-                        <label for="exampleInputEmail1" class="form-label">Transfer Amount ($)</label>
-                        <input type="text" class="form-control" id="exampleInputEmail1">
-                    </div>
-                </div>
-                <div class="mb-3 col-md-3">
-                    <div>
-                        <label for="exampleInputEmail1" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1">
-                    </div>
-                    <div>
-                        <label for="exampleInputEmail1" class="form-label">Fees (%)</label>
-                        <input type="number" class="form-control" id="exampleInputEmail1">
-                    </div>
-                </div>
-                <div class="mb-3 col-md-3">
-                    <div>
-                        <label for="exampleInputEmail1" class="form-label">Sender balance</label>
-                        <input type="number" class="form-control" id="exampleInputEmail1">
-                    </div>
-                    <div>
-                        <label for="exampleInputEmail1" class="form-label">Total amount of transaction ($)</label>
-                        <input type="number" class="form-control" id="exampleInputEmail1">
-                    </div>
-                </div>
-                <div class=" mb-3 col-md-12">
-                    <button type="button" class="btn btn-outline-primary"><i class="fa-solid fa-arrow-right-arrow-left"></i> Transfer</button>
-                </div>
-            </div>
-        </form>
+        <div class="form-group mb-3">
+          <label class="mb-1" for="recipientAccount">Nomor Rekening Tujuan:</label>
+          <input type="text" name="norekTujuan" class="form-control" id="recipientAccount"
+            placeholder="Masukkan nomor rekening tujuan">
+        </div>
+        <button type="submit" class="btn mt-3 btn-primary">Lanjutkan</button>
+      </form>
     </div>
+
   </div>
-  <script src="./bootstrap-5.2.0-dist/js/bootstrap.bundle.min.js"></script>
-  </body>
+
+
+
+  <script th:src="@{/bootstrap-5.2.0-dist/js/bootstrap.bundle.min.js}"></script>
+</body>
+
 </html>
